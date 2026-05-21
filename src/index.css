@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --animate-blob: blob 7s infinite;
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[#dfd1bc] text-[#1a1a1a] antialiased overflow-x-hidden selection:bg-orange-500 selection:text-white;
+    font-family: 'Urbanist', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/40 backdrop-blur-md border border-white/40 shadow-sm text-zinc-800;
+  }
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-xl border border-white/50 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300 rounded-[2rem];
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-rose-500 to-amber-500;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  .pill-nav {
+    @apply fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-[#dfd1bc]/80 backdrop-blur-xl border border-white/50 shadow-md rounded-full px-6 py-3 flex gap-8 items-center transition-all duration-500;
+  }
+  .david-badge {
+    @apply inline-block px-4 py-1.5 border-2 border-zinc-900 rounded-full text-sm font-bold tracking-widest uppercase transform -skew-x-12 bg-[#dfd1bc] text-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)];
+  }
+  .david-button {
+    @apply inline-flex items-center gap-2 bg-orange-500 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:bg-orange-400 shadow-[0_4px_20px_rgba(249,115,22,0.4)] hover:shadow-[0_8px_30px_rgba(249,115,22,0.6)] transform hover:-translate-y-1;
+  }
+  .david-outline-btn {
+    @apply inline-flex items-center justify-center p-4 bg-transparent border-2 border-zinc-900 text-zinc-900 rounded-full transition-all duration-300 hover:bg-zinc-900 hover:text-white shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] hover:translate-x-[2px] hover:translate-y-[2px];
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #dbceb9; 
+}
+::-webkit-scrollbar-thumb {
+  background: #bfaa95; 
+  border-radius: 5px;
+  border: 2px solid #dbceb9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a9937a; 
+}
